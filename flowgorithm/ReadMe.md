@@ -1,4 +1,4 @@
-ubtração
+Subtração
 
 Este módulo implementa um algoritmo simples que realiza a subtração entre dois números reais informados pelo usuário, exibindo o resultado ao final da execução. Ele faz parte de um projeto maior, representando a lógica de uma das operações aritméticas básicas do sistema. O fluxo do programa segue os seguintes passos, conforme representado no fluxograma:
 
