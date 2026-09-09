@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <math.h>
+
 #define PI 3.14159265358979323846
 
 float valorAbsoluto(float numero) {
-    return fabs(numero);
-}
-
-int main() {
-    printf("%f\n", valorAbsoluto(-7.5));
-    return 0;
+    if (numero < 0) {
+        return -numero;
+    } else {
+        return numero;
+    }
+    
 }
 
 float logaritmoNatural(float numero) {
@@ -25,4 +26,26 @@ float grausParaRadianos(float graus) {
 
 float radianosParaGraus(float radianos) {
     return radianos * (180 / PI);
+}
+
+int main() {
+    float numero;
+
+    printf("Digite um número para calcular o Valor Absoluto: ");
+    scanf("%f", &numero);
+    printf("Resultado: %f\n\n", valorAbsoluto(numero));
+
+    printf("Digite um número para calcular o Logaritmo Natural: ");
+    scanf("%f", &numero);
+    printf("Resultado: %f\n\n", logaritmoNatural(numero));
+
+    printf("Digite um número para calcular em graus para converter em Radianos: ");
+    scanf("%f", &numero);
+    printf("Resultado: %f\n\n", grausParaRadianos(numero));
+
+    printf("Digite um número para calcular em radianos para converter em Graus: ");
+    scanf("%f", &numero);
+    printf("Resultado: %f\n\n", radianosParaGraus(numero));
+
+    return 0;
 }
