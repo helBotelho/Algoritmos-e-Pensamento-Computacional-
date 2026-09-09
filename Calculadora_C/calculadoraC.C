@@ -24,10 +24,6 @@ float grausParaRadianos(float graus) {
     return graus * (PI / 180);
 }
 
-float radianosParaGraus(float radianos) {
-    return radianos * (180 / PI);
-}
-
 int main() {
     float numero;
 
@@ -42,10 +38,6 @@ int main() {
     printf("Digite um número para calcular em graus para converter em Radianos: ");
     scanf("%f", &numero);
     printf("Resultado: %f\n\n", grausParaRadianos(numero));
-
-    printf("Digite um número para calcular em radianos para converter em Graus: ");
-    scanf("%f", &numero);
-    printf("Resultado: %f\n\n", radianosParaGraus(numero));
 
     return 0;
 }
