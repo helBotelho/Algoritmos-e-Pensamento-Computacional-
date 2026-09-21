@@ -1,0 +1,39 @@
+Sistema de Monitoramento de Temperatura Industrial
+1. Identificação
+  Aluno(a): Helena Botelho de Moraes Costa
+  RGM: 47721588
+  Disciplina: Algoritmos e pensamento computacional
+  Professora: Profa. Karla Sartin
+  Título do projeto: Sistema de Monitoramento de Temperatura Industrial
+
+2. Objetivo
+    O programa simula o monitoramento contínuo da temperatura de um sensor industrial. O objetivo é alertar o operador sempre que uma leitura ultrapassar um limite de segurança definido por ele e, principalmente, identificar quando ocorrem 3 leituras consecutivas acima desse limite — situação que indica uma possível falha ou superaquecimento e que exige o encerramento automático do monitoramento para acionar uma verificação.
+
+3. Funcionamento do programa
+
+  Limite de temperatura: é definido pelo próprio usuário no início da execução. O programa só aceita valores numéricos e não negativos; caso contrário, a pergunta é repetida até uma entrada válida ser fornecida.
+  Leituras: a cada iteração o programa solicita uma nova temperatura, simulando a leitura do sensor.
+  Valores inválidos: tanto na leitura do limite quanto na leitura das temperaturas, o retorno do scanf é conferido. Se o usuário digitar algo que não seja um número, o programa exibe uma mensagem de erro, limpa o caractere inválido do buffer de entrada (com um while (getchar() != '\n')) e pede a entrada novamente, sem contar aquela tentativa como leitura válida. Se a entrada for encerrada (EOF / Ctrl+D), o programa finaliza de forma controlada, evitando loop infinito.
+  Identificação de temperaturas acima do limite: cada leitura válida é comparada com o limite. Se for maior, o programa emite um alerta na tela.
+  Contagem de temperaturas consecutivas: existe um contador (sequenciaAtual) que é incrementado sempre que uma leitura fica acima do limite. Se uma leitura ficar dentro do limite, esse contador é zerado imediatamente, pois a sequência foi quebrada.
+  Condição de encerramento: o monitoramento é encerrado automaticamente quando sequenciaAtual atinge 3 (três leituras acima do limite em sequência). O programa também pode ser encerrado manualmente pelo usuário ao enviar EOF (Ctrl+D no Linux/Mac ou Ctrl+Z no Windows).
+  Ao final, é exibido um relatório com total de leituras válidas, maior e menor temperatura, média das temperaturas e percentual de leituras acima do limite.
+                                                                                                                                                                                                                                                              
+4. Estruturas de repetição utilizadas
+
+while — usado na etapa de definição do limite de temperatura (while (!limiteValido)). Foi escolhido porque, em alguns casos (por exemplo, se uma verificação prévia do valor pudesse ser feita antes de perguntar), a leitura poderia nem ser necessária; o while testa a condição antes de repetir o bloco, o que deixa claro que o laço só continua enquanto o limite não for válido.
+do...while — usado no laço principal de monitoramento (do { ... } while (sequenciaAtual < 3)). Foi escolhido porque o programa precisa realizar pelo menos uma leitura de temperatura antes de verificar a condição de parada, já que no início sequenciaAtual vale 0 e ainda não existe nenhuma leitura para avaliar. O do...while garante essa primeira execução obrigatória.
+                                                       
+5. Como executar
+                                                       
+Compilar:
+bash
+gcc monitoramento.c -o monitoramento
+Executar:
+bash
+./monitoramento
+No Windows (usando o executável gerado):
+bash
+monitoramento.exe
+                                                       
+Evidências na pasta evidências.
